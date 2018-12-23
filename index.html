@@ -7,16 +7,64 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script>
 
     <title>Cafe</title>
   </head>
-  <body>
-    <h1>Cafe Menu List</h1>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <h1 class="text-center">Cafe List</h1>
+      <form id="form">
+        <div class="row mb-2">
+          <div class="col-md-4">
+            <input name="name" type="text" class="form-control" placeholder="Cafe name">
+          </div>
+          <div class="col-md-4">
+            <input name="city" type="text" class="form-control" placeholder="Cafe city">
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-2">
+            <button id="save" class="btn btn-primary">Add Cafe</button>
+          </div>
+        </div>
+      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Act</th>
+          </tr>
+        </thead>
+        <tbody id="results">
+        </tbody>
+      </table>
+    </div>
 
+    <!-- Firestore -->
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCVWv45JlbIRuzWIgf7OZF03FE7Yj_yUzM",
+        authDomain: "my-first-firestore-d683d.firebaseapp.com",
+        databaseURL: "https://my-first-firestore-d683d.firebaseio.com",
+        projectId: "my-first-firestore-d683d",
+        storageBucket: "my-first-firestore-d683d.appspot.com",
+        messagingSenderId: "31133175440"
+      };
+      firebase.initializeApp(config);
+      const db = firebase.firestore();
+      db.settings({timestampsInSnapshots: true});
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="assets/storeSet/app.js" charset="utf-8"></script>
   </body>
 </html>
